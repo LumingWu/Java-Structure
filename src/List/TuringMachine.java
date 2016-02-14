@@ -30,6 +30,9 @@ public class TuringMachine<E>{
     }
     
     public E getFirst(){
+        if(_first == null){
+            return null;
+        }
         return _first.e;
     }
     
@@ -49,14 +52,26 @@ public class TuringMachine<E>{
     }
     
     public E removeFirst(){
-        E e = _first.e;
-        _first = _first.successor;
-        _first.predecessor = null;
-        _size = _size - 1;
-        return e;
+        switch(_size){
+            case 0:
+                return null;
+            case 1:
+                E e1 = _first.e;
+                this.clear();
+                return e1;
+            default:
+                E e2 = _first.e;
+                _first = _first.successor;
+                _first.predecessor = null;
+                _size = _size - 1;
+                return e2;
+        }
     }
     
     public E getLast(){
+        if(_last == null){
+            return null;
+        }
         return _last.e;
     }
     
@@ -76,11 +91,20 @@ public class TuringMachine<E>{
     }
     
     public E removeLast(){
-        E e = _last.e;
-        _last = _last.predecessor;
-        _last.successor = null;
-        _size = _size - 1;
-        return e;
+        switch(_size){
+            case 0:
+                return null;
+            case 1:
+                E e1 = _last.e;
+                this.clear();
+                return e1;
+            default:
+                E e2 = _last.e;
+                _last = _last.predecessor;
+                _last.successor = null;
+                _size = _size - 1;
+                return e2;
+        }
     }
     
     public void runHead(){

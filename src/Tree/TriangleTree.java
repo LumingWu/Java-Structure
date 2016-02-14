@@ -6,7 +6,6 @@ public class TriangleTree<T> {
     
     ArrayList<Node<T>> tree;
     int height;
-    int size;
     int counter;
     
     public TriangleTree(int size){
@@ -21,21 +20,32 @@ public class TriangleTree<T> {
     }
     
     public int size(){
-        return size;
+        return tree.size();
+    }
+    
+    public boolean isEmpty(){
+        return tree.isEmpty();
     }
     
     public int height(){
         return height;
     }
     
+    public T get(int index){
+        return tree.get(index).value;
+    }
+    
+    public int levelIndex(int index){
+        return tree.get(index).index;
+    }
+    
     public boolean add(T e){
-        tree.add(new Node(e, height));
+        tree.add(new Node(e, height, counter));
         counter = counter + 1;
         if(counter == height){
             counter = 0;
             height = height + 1;
         }
-        size = size + 1;
         return true;
     }
     
@@ -45,14 +55,12 @@ public class TriangleTree<T> {
             height = height - 1;
             counter = height;
         }
-        size = size - 1;
-        return tree.remove(size).value;
+        return tree.remove(tree.size() - 1).value;
     }
     
     public void clear(){
         tree.clear();
         height = 1;
-        size = 0;
         counter = 0;
     }
     
@@ -60,26 +68,35 @@ public class TriangleTree<T> {
         return tree.get(index).height;
     }
     
-    public int getRoot(int index){
+    public int parent(int index){
         return index - tree.get(index).height + 1;
     }
     
-    public int getLeft(int index){
+    public int left(int index){
         return tree.get(index).height + index;
     }
     
-    public int getRight(int index){
+    public int right(int index){
         return tree.get(index).height + index + 1;
+    }
+    
+    public static int heightToSize(int height){
+        if(height <= 0){
+            return 0;
+        }
+        return height + heightToSize(height - 1);
     }
     
     private class Node<T>{
         
         public T value;
         public int height;
+        public int index;
         
-        public Node(T e, int h){
+        public Node(T e, int h, int i){
             value = e;
             height = h;
+            index = i;
         }
     }
 }
