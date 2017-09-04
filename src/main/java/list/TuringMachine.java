@@ -1,4 +1,4 @@
-package List;
+package main.java.list;
 
 /**
  *
