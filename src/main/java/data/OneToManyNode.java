@@ -1,25 +1,25 @@
 package main.java.data;
 
+import main.java.list.LinkedList;
+
 public class OneToManyNode<E> extends Node{
 
     private Node predecessor = null;
-    private Node[] successors;
+    private LinkedList<Node> successors;
 
-    public OneToManyNode(int s_size){
+    public OneToManyNode(){
         super();
-        successors = new Node[s_size];
     }
 
-    public OneToManyNode(E value, int s_size){
+    public OneToManyNode(E value){
         super(value);
-        successors = new Node[s_size];
     }
 
     public Node getPredecessor() {
         return predecessor;
     }
 
-    public Node[] getSuccessors() {
+    public LinkedList<Node> getSuccessors() {
         return successors;
     }
 

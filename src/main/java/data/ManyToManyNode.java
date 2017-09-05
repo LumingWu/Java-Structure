@@ -1,27 +1,25 @@
 package main.java.data;
 
+import main.java.list.LinkedList;
+
 public class ManyToManyNode<E> extends Node{
 
-    private Node[] predecessors;
-    private Node[] successors;
+    private LinkedList<Node> predecessors;
+    private LinkedList<Node> successors;
 
-    public ManyToManyNode(int n_size, int m_size){
+    public ManyToManyNode(){
         super();
-        predecessors = new Node[n_size];
-        successors = new Node[m_size];
     }
 
-    public ManyToManyNode(E value, int n_size, int m_size){
+    public ManyToManyNode(E value){
         super(value);
-        predecessors = new Node[n_size];
-        successors = new Node[m_size];
     }
 
-    public Node[] getPredecessors() {
+    public LinkedList<Node> getPredecessors() {
         return predecessors;
     }
 
-    public Node[] getSuccessors() {
+    public LinkedList<Node> getSuccessors() {
         return successors;
     }
 }
