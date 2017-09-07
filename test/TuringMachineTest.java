@@ -1,5 +1,5 @@
 
-import List.TuringMachine;
+import main.java.list.TuringMachine;
 import java.util.LinkedList;
 import org.junit.After;
 import org.junit.Test;

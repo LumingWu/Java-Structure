@@ -8,12 +8,12 @@ public class MergeSort<E extends Comparable<E>> {
        It is impractical because placing k-element blocks is also not O(1), it is at least O(N+M)
       Benefit is the location of every element is k slot off.
     * */
-    private void merge(List<E> list, int L1, int R1, int L2, int R2){
+    private void merge(List<E> list, int L1, int R1, int L2, int R2){/*
         while(L1 <= R1 || L2 <= R2){
             if(list.get(L1).compareTo(list.get(L2)) >){
 
             }
-        }
+        }*/
     }
 
     private void sort(List<E> list, int left, int right){

@@ -1,6 +1,6 @@
 package main.java;
 
-import main.java.search.InsertionSort;
+import main.java.sort.InsertionSort;
 import main.java.sort.SelectionSort;
 
 import java.util.Arrays;
