@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TriangleTree;
 
-import Tree.TriangleTree;
+import main.java.tree.TriangleTree;
 import java.util.LinkedList;
 import org.junit.After;
 import org.junit.Before;

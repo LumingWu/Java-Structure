@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class List<E> {
 
-    private Object[] list;
+    private E[] list;
     private int size = 0;
 
     public List(){
@@ -12,7 +12,7 @@ public class List<E> {
     }
 
     public List(int size){
-        list = new Object[size];
+        list = (E[])new Object[size];
     }
 
     private void resize(){
@@ -30,8 +30,8 @@ public class List<E> {
     public E remove(int index){
         if(index >= 0 && index < size){
             E temp = (E)list[index];
-            for(int i = index; i < size - 1; i++){
-                list[index] = list[index + 1];
+            for(int i = index + 1; i < size; i++){
+                list[i - 1] = list[i];
             }
             list[size] = null;
             size--;
@@ -45,8 +45,8 @@ public class List<E> {
     }
 
     public E get(int index){
-        if(index > 0 && index < size){
-            return (E)list[index];
+        if(index >= 0 && index < size){
+            return list[index];
         }
         return null;
     }
