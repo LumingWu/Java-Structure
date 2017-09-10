@@ -3,6 +3,10 @@ package main.java.sort;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Divide the list by 2 for log(n) times. Then merge log(n) times. For each merge, it is linear, at most n.
+ * @param <E>
+ */
 public class MergeSort<E extends Comparable<E>> {
     /* Kornrod's merge would be a good approximation merge.
        But that kills the purpose of merge sort because now correctness is worse than heap sort.
