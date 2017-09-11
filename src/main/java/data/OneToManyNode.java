@@ -1,11 +1,12 @@
 package main.java.data;
 
-import main.java.list.LinkedList;
+
+import java.util.LinkedList;
 
 public class OneToManyNode<E> extends Node{
 
-    private Node predecessor = null;
-    private LinkedList<Node> successors;
+    private OneToManyNode<E> predecessor = null;
+    private OneToManyNode<E>[] successors;
 
     public OneToManyNode(){
         super();
@@ -15,11 +16,11 @@ public class OneToManyNode<E> extends Node{
         super(value);
     }
 
-    public Node getPredecessor() {
+    public OneToManyNode<E> getPredecessor() {
         return predecessor;
     }
 
-    public LinkedList<Node> getSuccessors() {
+    public OneToManyNode<E>[] getSuccessors() {
         return successors;
     }
 
